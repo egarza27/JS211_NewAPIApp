@@ -1,90 +1,206 @@
 let arrayOfProducts;
 
 const goButton = document.getElementById("goButton");
-const blushButton = document.getElementById("blush");
+
+const blushButton = document.getElementById("blushButton");
+
+const bronzerButton = document.getElementById("bronzerButton");
+
+const eyeshadowButton = document.getElementById("eyeshadowButton");
+
+const foundationButton = document.getElementById("foundationButton");
+
+const liplinerButton = document.getElementById("liplinerButton");
+
+const lipstickButton = document.getElementById("lipstickButton");
+
+const mascaraButton = document.getElementById("mascaraButton");
 
 window.onload = function () {
   fetchMakeupProducts();
 };
 
-//TODO: store json data in an array
-
 const fetchMakeupProducts = () => {
-  fetch("http://makeup-api.herokuapp.com/api/v1/products.json?")
+  fetch(
+    "http://makeup-api.herokuapp.com/api/v1/products.json?rating_greater_than=3&price_less_than=20"
+  )
     .then((res) => res.json())
     .then((post) => (arrayOfProducts = post));
 };
-
-//TODO: create a filter function to filter through
 
 const displayProducts = (arr) => {
   const makeupList = document.getElementById("makeupList");
   arr.map((post, index) => {
     const li = document.createElement("li");
-    // const img = document.createElement("img");
-    // img.src = post.image_link;
+    const img = document.createElement("img");
+    img.src = post.image_link;
     const text = document.createTextNode(
       `Brand: ${post.brand}, Name: ${post.name}, Rate: ${post.rating}, Price: ${post.price} Product: ${post.product_type}`
     );
     li.appendChild(text);
-    // li.appendChild(img);
+    li.appendChild(img);
     makeupList.appendChild(li);
   });
 };
 
-const filterBlushArray = (arrayOfProducts) => {
+const filterBlushArray = (arr) => {
   const blushList = document.getElementById("blushList");
-  blushList.innerHTML = "";
-  const filteredBlushProducts = arrayOfProducts.filter((item) => {
+  const filteredBlushProducts = arr.filter((item) => {
     return item["product_type"] === "blush";
   });
-  console.log(filteredBlushProducts);
-  arrayOfProducts = filteredBlushProducts;
-  return arrayOfProducts;
-};
-
-const filterBronzerArray = (arrayOfProducts) => {
-  const filteredBronzerProducts = arrayOfProducts.filter((item) => {
-    return item.product_type === "bronzer";
+  filteredBlushProducts.map((post, index) => {
+    const li = document.createElement("li");
+    const img = document.createElement("img");
+    img.src = post.image_link;
+    const text = document.createTextNode(
+      `Brand: ${post.brand}, Name: ${post.name}, Rate: ${post.rating}, Price: ${post.price} Product: ${post.product_type}`
+    );
+    li.appendChild(text);
+    li.appendChild(img);
+    blushList.appendChild(li);
   });
-
-  arrayOfProducts = filteredBronzerProducts;
-  return arrayOfProducts;
 };
 
-const filterEyebrowArray = (arrayOfProducts) => {
-  const filteredEyebrowProducts = arrayOfProducts.filter((item) => {
-    return item.product_type === "eyebrow";
+const filterBronzerArray = (arr) => {
+  const bronzerList = document.getElementById("bronzerList");
+  const filteredBronzerProducts = arr.filter((item) => {
+    return item["product_type"] === "bronzer";
   });
-
-  arrayOfProducts = filteredEyebrowProducts;
-  return arrayOfProducts;
-};
-
-const filterEyelinerArray = (arrayOfProducts) => {
-  const filteredEyelinerProducts = arrayOfProducts.filter((item) => {
-    return item.product_type === "eyeliner";
+  filteredBronzerProducts.map((post, index) => {
+    const li = document.createElement("li");
+    const img = document.createElement("img");
+    img.src = post.image_link;
+    const text = document.createTextNode(
+      `Brand: ${post.brand}, Name: ${post.name}, Rate: ${post.rating}, Price: ${post.price} Product: ${post.product_type}`
+    );
+    li.appendChild(text);
+    li.appendChild(img);
+    bronzerList.appendChild(li);
   });
-
-  arrayOfProducts = filteredEyelinerProducts;
-  return arrayOfProducts;
 };
 
-const filterEyeshadowArray = (arrayOfProducts) => {
-  const filteredEyeshadowProducts = arrayOfProducts.filter((item) => {
-    return item.product_type === "eyeshadow";
+const filterFoundationArray = (arr) => {
+  const foundationList = document.getElementById("foundationList");
+  const filteredFoundationProducts = arr.filter((item) => {
+    return item["product_type"] === "foundation";
   });
-
-  arrayOfProducts = filteredEyeshadowProducts;
-  return arrayOfProducts;
+  filteredFoundationProducts.map((post, index) => {
+    const li = document.createElement("li");
+    const img = document.createElement("img");
+    img.src = post.image_link;
+    const text = document.createTextNode(
+      `Brand: ${post.brand}, Name: ${post.name}, Rate: ${post.rating}, Price: ${post.price} Product: ${post.product_type}`
+    );
+    li.appendChild(text);
+    li.appendChild(img);
+    foundationButton.appendChild(li);
+  });
 };
+
+const filterLiplinerArray = (arr) => {
+  const liplinerList = document.getElementById("liplinerList");
+  const filteredLiplinerProducts = arr.filter((item) => {
+    return item["product_type"] === "lip_liner";
+  });
+  filteredLiplinerProducts.map((post, index) => {
+    const li = document.createElement("li");
+    const img = document.createElement("img");
+    img.src = post.image_link;
+    const text = document.createTextNode(
+      `Brand: ${post.brand}, Name: ${post.name}, Rate: ${post.rating}, Price: ${post.price} Product: ${post.product_type}`
+    );
+    li.appendChild(text);
+    li.appendChild(img);
+    liplinerButton.appendChild(li);
+  });
+};
+
+const filterLipstickArray = (arr) => {
+  const lipstickList = document.getElementById("lipstickList");
+  const filteredLipstickProducts = arr.filter((item) => {
+    return item["product_type"] === "lipstick";
+  });
+  filteredLipstickProducts.map((post, index) => {
+    const li = document.createElement("li");
+    const img = document.createElement("img");
+    img.src = post.image_link;
+    const text = document.createTextNode(
+      `Brand: ${post.brand}, Name: ${post.name}, Rate: ${post.rating}, Price: ${post.price} Product: ${post.product_type}`
+    );
+    li.appendChild(text);
+    li.appendChild(img);
+    lipstickButton.appendChild(li);
+  });
+};
+
+const filterMascaraArray = (arr) => {
+  const mascaraList = document.getElementById("mascaraList");
+  const filteredMascaraProducts = arr.filter((item) => {
+    return item["product_type"] === "mascara";
+  });
+  filteredMascaraProducts.map((post, index) => {
+    const li = document.createElement("li");
+    const img = document.createElement("img");
+    img.src = post.image_link;
+    const text = document.createTextNode(
+      `Brand: ${post.brand}, Name: ${post.name}, Rate: ${post.rating}, Price: ${post.price} Product: ${post.product_type}`
+    );
+    li.appendChild(text);
+    li.appendChild(img);
+    mascaraButton.appendChild(li);
+  });
+};
+
+const filterEyeshadowArray = (arr) => {
+  const eyeshadowList = document.getElementById("eyeshadowList");
+  const filteredEyeshadowProducts = arr.filter((item) => {
+    return item["product_type"] === "eyeshadow";
+  });
+  filteredEyeshadowProducts.map((post, index) => {
+    const li = document.createElement("li");
+    const img = document.createElement("img");
+    img.src = post.image_link;
+    const text = document.createTextNode(
+      `Brand: ${post.brand}, Name: ${post.name}, Rate: ${post.rating}, Price: ${post.price} Product: ${post.product_type}`
+    );
+    li.appendChild(text);
+    li.appendChild(img);
+    eyeshadowButton.appendChild(li);
+  });
+};
+
+//*---------------DOM FILTER FUNCTIONS-----------------
 
 goButton.addEventListener("click", (e) => {
   displayProducts(arrayOfProducts);
 });
 
-blushButton.addEventListener("click", (i) => {
-  displayProducts(arrayOfProducts);
+blushButton.addEventListener("click", (e) => {
+  filterBlushArray(arrayOfProducts);
+});
+
+bronzerButton.addEventListener("click", (e) => {
+  filterBronzerArray(arrayOfProducts);
+});
+
+foundationButton.addEventListener("click", (e) => {
+  filterFoundationArray(arrayOfProducts);
+});
+
+liplinerButton.addEventListener("click", (e) => {
+  filterLiplinerArray(arrayOfProducts);
+});
+
+lipstickButton.addEventListener("click", (e) => {
+  filterLiplinerArray(arrayOfProducts);
+});
+
+mascaraButton.addEventListener("click", (e) => {
+  filterMascaraArray(arrayOfProducts);
+});
+
+eyeshadowButton.addEventListener("click", (e) => {
+  filterEyeshadowArray(arrayOfProducts);
 });
 
 // TODO: create a function that filters by search parameters
