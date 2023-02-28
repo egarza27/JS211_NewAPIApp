@@ -53,11 +53,12 @@ const filterBlushArray = (arr) => {
     const img = document.createElement("img");
     img.src = post.image_link;
     const text = document.createTextNode(
-      `Brand: ${post.brand}, Name: ${post.name}, Rate: ${post.rating}, Price: ${post.price} Product: ${post.product_type}`
+      `${post.name}, Rate: ${post.rating}, Price: ${post.price}`
     );
+
     li.appendChild(text);
-    li.appendChild(img);
     blushList.appendChild(li);
+    li.appendChild(img);
   });
 };
 
@@ -71,29 +72,12 @@ const filterBronzerArray = (arr) => {
     const img = document.createElement("img");
     img.src = post.image_link;
     const text = document.createTextNode(
-      `Brand: ${post.brand}, Name: ${post.name}, Rate: ${post.rating}, Price: ${post.price} Product: ${post.product_type}`
+      ` 
+      ${post.name}, Rate: ${post.rating}, Price: ${post.price}`
     );
     li.appendChild(text);
     li.appendChild(img);
     bronzerList.appendChild(li);
-  });
-};
-
-const filterFoundationArray = (arr) => {
-  const foundationList = document.getElementById("foundationList");
-  const filteredFoundationProducts = arr.filter((item) => {
-    return item["product_type"] === "foundation";
-  });
-  filteredFoundationProducts.map((post, index) => {
-    const li = document.createElement("li");
-    const img = document.createElement("img");
-    img.src = post.image_link;
-    const text = document.createTextNode(
-      `Brand: ${post.brand}, Name: ${post.name}, Rate: ${post.rating}, Price: ${post.price} Product: ${post.product_type}`
-    );
-    li.appendChild(text);
-    li.appendChild(img);
-    foundationButton.appendChild(li);
   });
 };
 
@@ -107,11 +91,11 @@ const filterLiplinerArray = (arr) => {
     const img = document.createElement("img");
     img.src = post.image_link;
     const text = document.createTextNode(
-      `Brand: ${post.brand}, Name: ${post.name}, Rate: ${post.rating}, Price: ${post.price} Product: ${post.product_type}`
+      `${post.name}, Rate: ${post.rating}, Price: ${post.price}`
     );
     li.appendChild(text);
     li.appendChild(img);
-    liplinerButton.appendChild(li);
+    liplinerList.appendChild(li);
   });
 };
 
@@ -125,11 +109,11 @@ const filterLipstickArray = (arr) => {
     const img = document.createElement("img");
     img.src = post.image_link;
     const text = document.createTextNode(
-      `Brand: ${post.brand}, Name: ${post.name}, Rate: ${post.rating}, Price: ${post.price} Product: ${post.product_type}`
+      `${post.name}, Rate: ${post.rating}, Price: ${post.price}`
     );
     li.appendChild(text);
     li.appendChild(img);
-    lipstickButton.appendChild(li);
+    lipstickList.appendChild(li);
   });
 };
 
@@ -143,11 +127,11 @@ const filterMascaraArray = (arr) => {
     const img = document.createElement("img");
     img.src = post.image_link;
     const text = document.createTextNode(
-      `Brand: ${post.brand}, Name: ${post.name}, Rate: ${post.rating}, Price: ${post.price} Product: ${post.product_type}`
+      `${post.name}, Rate: ${post.rating}, Price: ${post.price}`
     );
     li.appendChild(text);
     li.appendChild(img);
-    mascaraButton.appendChild(li);
+    mascaraList.appendChild(li);
   });
 };
 
@@ -161,11 +145,11 @@ const filterEyeshadowArray = (arr) => {
     const img = document.createElement("img");
     img.src = post.image_link;
     const text = document.createTextNode(
-      `Brand: ${post.brand}, Name: ${post.name}, Rate: ${post.rating}, Price: ${post.price} Product: ${post.product_type}`
+      `${post.name}, Rate: ${post.rating}, Price: ${post.price}`
     );
     li.appendChild(text);
     li.appendChild(img);
-    eyeshadowButton.appendChild(li);
+    eyeshadowList.appendChild(li);
   });
 };
 
@@ -188,10 +172,6 @@ foundationButton.addEventListener("click", (e) => {
 });
 
 liplinerButton.addEventListener("click", (e) => {
-  filterLiplinerArray(arrayOfProducts);
-});
-
-lipstickButton.addEventListener("click", (e) => {
   filterLiplinerArray(arrayOfProducts);
 });
 

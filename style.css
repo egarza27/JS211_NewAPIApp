@@ -1,0 +1,36 @@
+body {
+  font-family: "Gloock", serif;
+  background-color: rgba(241, 241, 212, 0.4);
+  color: rgb(73, 73, 73);
+  /* margin-left: 10%; */
+  margin-right: 10%;
+}
+
+#main {
+  font-family: "Gloock", serif;
+}
+
+button {
+  display: inline;
+  font-family: "Gloock", serif;
+  background-color: rgba(255, 255, 255, 0.09);
+  border-style: solid;
+  font-size: large;
+  text-transform: capitalize;
+  color: rgb(73, 73, 73);
+}
+
+h1 {
+  margin-top: 2%;
+  margin-bottom: 5%;
+}
+
+li {
+  font-family: "Gloock", serif;
+  list-style-type: decimal;
+  /* text-transform: capitalize; */
+}
+
+img {
+  display: inline;
+}
