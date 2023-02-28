@@ -35,7 +35,7 @@ const displayProducts = (arr) => {
     const img = document.createElement("img");
     img.src = post.image_link;
     const text = document.createTextNode(
-      `Brand: ${post.brand}, Name: ${post.name}, Rate: ${post.rating}, Price: ${post.price} Product: ${post.product_type}`
+      `${post.name}, Rating: ${post.rating}, Price: $${post.price}`
     );
     li.appendChild(text);
     li.appendChild(img);
@@ -53,7 +53,7 @@ const filterBlushArray = (arr) => {
     const img = document.createElement("img");
     img.src = post.image_link;
     const text = document.createTextNode(
-      `${post.name}, Rate: ${post.rating}, Price: ${post.price}`
+      `${post.name}, Rating: ${post.rating}, Price: $${post.price}`
     );
 
     li.appendChild(text);
@@ -73,7 +73,7 @@ const filterBronzerArray = (arr) => {
     img.src = post.image_link;
     const text = document.createTextNode(
       ` 
-      ${post.name}, Rate: ${post.rating}, Price: ${post.price}`
+      ${post.name}, Rating: ${post.rating}, Price: $${post.price}`
     );
     li.appendChild(text);
     li.appendChild(img);
@@ -91,7 +91,7 @@ const filterLiplinerArray = (arr) => {
     const img = document.createElement("img");
     img.src = post.image_link;
     const text = document.createTextNode(
-      `${post.name}, Rate: ${post.rating}, Price: ${post.price}`
+      `${post.name}, Rating: ${post.rating}, Price: $${post.price}`
     );
     li.appendChild(text);
     li.appendChild(img);
@@ -109,7 +109,7 @@ const filterLipstickArray = (arr) => {
     const img = document.createElement("img");
     img.src = post.image_link;
     const text = document.createTextNode(
-      `${post.name}, Rate: ${post.rating}, Price: ${post.price}`
+      `${post.name}, Rating: ${post.rating}, Price: $${post.price}`
     );
     li.appendChild(text);
     li.appendChild(img);
@@ -127,7 +127,7 @@ const filterMascaraArray = (arr) => {
     const img = document.createElement("img");
     img.src = post.image_link;
     const text = document.createTextNode(
-      `${post.name}, Rate: ${post.rating}, Price: ${post.price}`
+      `${post.name}, Rating: ${post.rating}, Price: $${post.price}`
     );
     li.appendChild(text);
     li.appendChild(img);
@@ -145,7 +145,7 @@ const filterEyeshadowArray = (arr) => {
     const img = document.createElement("img");
     img.src = post.image_link;
     const text = document.createTextNode(
-      `${post.name}, Rate: ${post.rating}, Price: ${post.price}`
+      `${post.name}, Rating: ${post.rating}, Price: $${post.price}`
     );
     li.appendChild(text);
     li.appendChild(img);
@@ -165,10 +165,6 @@ blushButton.addEventListener("click", (e) => {
 
 bronzerButton.addEventListener("click", (e) => {
   filterBronzerArray(arrayOfProducts);
-});
-
-foundationButton.addEventListener("click", (e) => {
-  filterFoundationArray(arrayOfProducts);
 });
 
 liplinerButton.addEventListener("click", (e) => {
